@@ -1,51 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Turbo Quiz App</title>
-</head>
-<body>
-  <h1>Turbo Quiz App</h1>
-  <div id="quiz-container">
-    <p id="question">Loading question...</p>
-    <button onclick="submitAnswer(true)">True</button>
-    <button onclick="submitAnswer(false)">False</button>
-  </div>
-  <p id="result"></p>
-  <button id="next" style="display:none;" onclick="nextQuestion()">Next Question</button>
-  
-  <script>
-    // Simple hardcoded questions to start
-    const questions = [
-      { question: "The sky is blue.", answer: true },
-      { question: "2 + 2 = 5.", answer: false },
-      { question: "Cats can fly.", answer: false }
-    ];
-    let current = 0;
-
-    function showQuestion() {
-      document.getElementById("result").textContent = "";
-      document.getElementById("next").style.display = "none";
-      if (current < questions.length) {
-        document.getElementById("question").textContent = questions[current].question;
-      } else {
-        document.getElementById("question").textContent = "Quiz complete!";
-        document.getElementById("quiz-container").style.display = "none";
-      }
-    }
-
-    function submitAnswer(userAnswer) {
-      const correct = questions[current].answer === userAnswer;
-      document.getElementById("result").textContent = correct ? "Correct!" : "Incorrect.";
-      document.getElementById("next").style.display = "inline";
-    }
-
-    function nextQuestion() {
-      current++;
-      showQuestion();
-    }
-
-    showQuestion();
-  </script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
